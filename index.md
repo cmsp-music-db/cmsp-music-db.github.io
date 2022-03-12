@@ -69,7 +69,7 @@ function parse_csv(str) {
                                 
 $(document).ready(function() {
   $.get(csv_data_url, (data, status) => {
-    parse = parse_csv(data);
+    const parsed = parse_csv(data);
     $('#table').DataTable({
 	    data: parsed,
 	    columns: [
