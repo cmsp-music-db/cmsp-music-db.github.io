@@ -6,6 +6,7 @@ Extremely simple (hopefully)...
 
 <div id="js">
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.0.2/list.min.js"></script>
  <script>
 const csv_data_url = 'https://raw.githubusercontent.com/cmsp-music-db/cmsp-music-db.github.io/main/data.csv';
 
@@ -35,14 +36,15 @@ function parse_csv(str) {
       switch(str[i]) {
         case '\"':
           in_quote = true;
-          break;
+          continue;
         case '\n':
           terminate_row();
-          break;
+          continue;
         case '\r':
           continue;
         case ',':
           terminate_col();
+          continue;       
       }
     } else if(str[i] == '\"') { // If we are in a quote and we got a quote char, we get out
       if(str[i - 1] === '\\' || str[i - 1] === '\"') { // Escape char
@@ -51,6 +53,7 @@ function parse_csv(str) {
       }
       
       in_quote = false;
+      continue;
     }
     
     column += str[i];
