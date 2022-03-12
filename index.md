@@ -2,8 +2,7 @@
 
 Extremely simple (hopefully)...
 
-<div id="text"></div>
+<div id="table"></div>
  
-<script>
-document.getElementById("text").innerHTML = "Text added by JavaScript code";
+<script src="index.js">
 </script>
