@@ -70,8 +70,10 @@ function parse_csv(str) {
 $(document).ready(function() {
   $.get(csv_data_url, (data, status) => {
     const parsed = parse_csv(data);
+    parsed.splice(0, 1); // Remove first row
     console.log(parsed);
     $('#table').DataTable({
+	    responsive: true
 	    data: parsed,
 	    columns: [
         { title: "Composer" },
