@@ -2,6 +2,8 @@
 
 Extremely simple (hopefully)...
 
+<div id="text"></div>
+ 
 <script>
-  alert('example');
+document.getElementById("text").innerHTML = "Text added by JavaScript code";
 </script>
