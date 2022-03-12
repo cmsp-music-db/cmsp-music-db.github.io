@@ -49,5 +49,6 @@ function parse_csv(str) {
 }
 
 $.get(csv_data_url, (data, status) => {
+  console.log(parse_csv(data));
   $('#table').html(data);
 });
