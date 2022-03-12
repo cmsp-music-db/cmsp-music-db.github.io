@@ -73,7 +73,7 @@ $(document).ready(function() {
     parsed.splice(0, 1); // Remove first row
     console.log(parsed);
     $('#table').DataTable({
-	    responsive: true
+	    responsive: true,
 	    data: parsed,
 	    columns: [
         { title: "Composer" },
