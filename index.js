@@ -28,6 +28,7 @@ function parse_csv(str) {
           in_quote = true;
           continue;
         case '\n':
+          console.log(`Newline @ ${i}. String as of ${i - 5}-${i}: ${str.substr(i - 5, 5)}`);
           terminate_row();
           continue;
         case '\r':
