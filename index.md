@@ -55,6 +55,8 @@ function parse_csv(str) {
     
     column += str[i];
   }
+                                
+  return rows;
 }
 
 $.get(csv_data_url, (data, status) => {
