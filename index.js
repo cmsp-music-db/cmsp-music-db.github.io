@@ -57,7 +57,7 @@ function parse_csv(str) {
 $(document).ready(function () {
   $.get(csv_data_url, (data, status) => {
     const parsed = parse_csv(data);
-    const columns = parsed.map(function (e) {
+    const columns = parsed[0].map(function (e) {
       return { title: e };
     });
 
