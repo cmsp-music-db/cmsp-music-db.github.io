@@ -2,11 +2,15 @@
 
 Extremely simple (hopefully)...
 
-<div id="table"></div>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> 
+<table id="table" class="display" style="width:100%">
+</table>
+
+
 
 <div id="js">
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.0.2/list.min.js"></script>
+ <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
  <script>
 const csv_data_url = 'https://raw.githubusercontent.com/cmsp-music-db/cmsp-music-db.github.io/main/data.csv';
 
@@ -62,10 +66,23 @@ function parse_csv(str) {
   return rows;
 }
 
-$.get(csv_data_url, (data, status) => {
-  console.log(parse_csv(data));
-  $('#table').html(data);
+                                
+$(document).ready(function() {
+  $.get(csv_data_url, (data, status) => {
+    $('#table').DataTable({
+	    data: data,
+	    columns: [
+        { title: "Composer" },
+        { title: "Arranger / Transcriber" },
+        { title: "Title" },
+        { title: "Edition" },
+        { title: "Instrumentation" },
+        { title: "Editor" }
+	    ]
+    });
+  });
 });
+                                
 
  </script>
 </div>
