@@ -57,20 +57,16 @@ function parse_csv(str) {
 $(document).ready(function () {
   $.get(csv_data_url, (data, status) => {
     const parsed = parse_csv(data);
-    console.log(parsed);
+    const columns = parsed.map(function (e) {
+      return { title: e };
+    });
+
     parsed.splice(0, 1); // Remove first row
     console.log(parsed);
     $('#table').DataTable({
       responsive: true,
       data: parsed,
-      columns: [
-        { title: "Composer" },
-        { title: "Arranger / Transcriber" },
-        { title: "Title" },
-        { title: "Edition" },
-        { title: "Instrumentation" },
-        { title: "Editor" }
-      ]
+      columns
     });
   });
 });
